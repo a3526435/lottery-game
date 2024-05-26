@@ -17,7 +17,7 @@ contract Lottery {
     function pickWinner() public restricted {
         uint index = random() % players.length;
         payable(players[index]).transfer(address(this).balance);
-        players = new address ;
+        players = new address ; // 修正了这个地方
     }
 
     function random() private view returns (uint) {
@@ -29,4 +29,3 @@ contract Lottery {
         _;
     }
 }
-
